@@ -1,4 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
+import { HandlerContext, PageProps } from "$fresh/server.ts";
+import Post from "../components/Post.tsx";
 import Counter from "../islands/Counter.tsx";
 
 export default function Home() {
@@ -7,19 +9,11 @@ export default function Home() {
       <Head>
         <title>Fresh App</title>
       </Head>
-      <div>
-        <img
-          src="/logo.svg"
-          width="128"
-          height="128"
-          alt="the fresh logo: a sliced lemon dripping with juice"
-        />
-        <p>
-          Welcome to `fresh`. Try updating this message in the ./routes/index.tsx
-          file, and refresh.
-        </p>
-        <Counter start={3} />
-      </div>
+      <body class="flex ml-64 bg-gray-600">
+        <div class="flex w-full flex-col overflow-auto">
+        <Post username="chnoma" body="Hello!" title="Title"/>
+        </div>
+      </body>
     </>
   );
 }

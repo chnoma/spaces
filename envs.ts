@@ -1,6 +1,7 @@
 function assert_env_exists(env_name: string) {
     if(!Deno.env.has(env_name)) {
-        throw new Error(`${env_name} environment variable not set`);
+        console.error(`${env_name} environment variable not set`)
+        Deno.exit(-1);
     }
 }
 
